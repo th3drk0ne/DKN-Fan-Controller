@@ -1,0 +1,12 @@
+[Unit]
+Description=DKN Fan Service
+ConditionPathExists=/opt/dkn
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/dkn/fan_ctrl-dkn.py
+TimeoutSec=0
+StandardOutput=tty
+
+[Install]
+WantedBy=multi-user.target
