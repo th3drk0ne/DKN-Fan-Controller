@@ -57,7 +57,6 @@ if [ -e $RC ]
 	else
 	wget "https://raw.githubusercontent.com/th3drk0ne/DKN-Fan-Controller/main/dkn-fan.service"
 	systemctl enable dkn-fan.service
-	systemctl daemon-reload
 	echo "Fan Service configured."
 fi
 #-----------------------------------------------------------
