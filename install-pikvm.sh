@@ -25,7 +25,7 @@ fi
 #-----------------------------------------------------------
 
 #Step 3) Install gpiozero module----------------------------
-pacman -Syu python-raspberry-gpio
+pacman -S python-raspberry-gpio --noconfirm
 #-----------------------------------------------------------
 
 #Step 4) Download Python script-----------------------------
