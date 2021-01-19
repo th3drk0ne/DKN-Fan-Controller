@@ -47,17 +47,18 @@ fi
 #-----------------------------------------------------------
 
 #Step 5) Enable Python script to run on start up------------
-cd /etc/
-RC=rc.local
-
+cd /etc/systemd/system
+RC=dkn-fan.service
 
 #Adding new configuration----------- 
-if grep -q "sudo python \/opt\/dkn\/fan_ctrl-dkn.py \&" "$RC";
+if [ -e $RC ]
 	then
 		echo "File /etc/rc.local already configured. Doing nothing."
 	else
-		sed -i -e "s/^exit 0/sudo python \/opt\/dkn\/fan_ctrl-dkn.py \&\n&/g" "$RC"
-		echo "File /etc/rc.local configured."
+	wget "https://raw.githubusercontent.com/th3drk0ne/DKN-Fan-Controller/main/dkn-fan.service"
+	systemctl enable dkn-fan.service
+	systemctl daemon-reload
+	echo "Fan Service configured."
 fi
 #-----------------------------------------------------------
 
