@@ -53,7 +53,7 @@ RC=dkn-fan.service
 #Adding new configuration----------- 
 if [ -e $RC ]
 	then
-		echo "File /etc/rc.local already configured. Doing nothing."
+		echo "Fan Service already configured. Doing nothing."
 	else
 	wget "https://raw.githubusercontent.com/th3drk0ne/DKN-Fan-Controller/main/dkn-fan.service"
 	systemctl enable dkn-fan.service
