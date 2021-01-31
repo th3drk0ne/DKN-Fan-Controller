@@ -55,7 +55,21 @@ if [ -e $RC ]
 	then
 		echo "Fan Service already configured. Doing nothing."
 	else
-	wget "https://raw.githubusercontent.com/th3drk0ne/DKN-Fan-Controller/main/dkn-fan.service"
+	cat > /etc/systemd/system/dkn-fan.service <<EOF
+[Unit]
+Description=DKN Fan Service
+ConditionPathExists=/opt/dkn
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/dkn/fan_ctrl-dkn.py
+TimeoutSec=0
+StandardOutput=tty
+
+[Install]
+WantedBy=multi-user.target
+EOF
+	systemctl daemon-reload
 	systemctl enable dkn-fan.service
 	echo "Fan Service configured."
 fi
