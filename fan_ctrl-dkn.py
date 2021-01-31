@@ -8,7 +8,7 @@ import sys
 # Configuration
 FAN_PIN = 18            # BCM pin used to drive transistor's base
 WAIT_TIME = 2         # [s] Time to wait between each refresh
-FAN_MIN = 20            # [%] Fan minimum speed.
+FAN_MIN = 35            # [%] Fan minimum speed.
 PWM_FREQ = 50          # [Hz] Change this value if fan has strange behavior
 
 # Configurable temperature and fan speed steps
